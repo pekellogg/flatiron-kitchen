@@ -14,10 +14,11 @@ gem 'sqlite3', '~>1.3.6'
 
 group :development, :test do
   gem 'rack_session_access'
-  gem "capybara"
-  gem "database_cleaner"
-  gem "pry-byebug"
-  gem "rspec-rails"
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'byebug'
+  gem 'awesome_print'
+  gem 'rspec-rails'
 end
 
 group :test do

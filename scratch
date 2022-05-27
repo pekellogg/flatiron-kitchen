@@ -1,0 +1,35 @@
+hints
+-----
+join table "recipe_ingredients"
+keep track ingredients per recipe
+
+relationship
+------------
+"having many" of one another; e.g. "many-to-many" relationship
+#=> ingredients have many recipes; recipes have many ingredients
+
+models
+------
+Ingredient
+rails g model Ingredient name:string --no-test-framework ✓
+validates :name, presence: true ✓
+has_many :recipes, through: :recipe_ingredients ✓
+has_many :recipe_ingredients ✓
+
+Recipe
+rails g model Recipe name:string --no-test-framework ✓
+validates :name, presence: true ✓
+has_many :ingredients, through: :recipe_ingredients ✓
+has_many :recipe_ingredients ✓
+
+RecipeIngredients
+rails g model RecipeIngredients recipe_id:integer ingredient_id:integer --no-test-framework
+belongs_to :ingredient
+belongs_to :recipe
+
+routes
+------
+#config/routes.rb
+resources :ingredients
+resources :recipes
+

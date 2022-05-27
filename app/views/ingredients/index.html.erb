@@ -1,0 +1,12 @@
+<h3>Search for Ingredient by Name</h3>
+<%= form_tag ingredients_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
+
+<h4>All Ingredients</h4>
+<% @ingredients.each do |ingredient| %>
+  <%= link_to ingredient.name, edit_ingredient_path(ingredient) %><br/>
+<% end %>

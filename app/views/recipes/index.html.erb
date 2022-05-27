@@ -1,0 +1,12 @@
+<h3>Search for Recipe by Name</h3>
+<%= form_tag recipes_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
+
+<h4>All Recipes</h4>
+<% @recipes.each do |recipe| %>
+  <%= link_to recipe.name, edit_recipe_path(recipe) %><br/>
+<% end %>
